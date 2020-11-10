@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const controllers = require('./controllers');
 const cors = require('cors');
 //npm install nodemon express body-parser cors event-stream
+//npm install --save-dev jest supertest
 //'start': 'nodemon express-server.js' under scripts in package.json
 //find snippets: express-server-contollers express-server-utils
 
