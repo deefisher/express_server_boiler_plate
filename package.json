@@ -1,5 +1,5 @@
 {
-  "name": "express_server_boiler_plate",
+  "name": "mario_express",
   "version": "1.0.0",
   "description": "",
   "main": "express-server.js",
@@ -15,7 +15,8 @@
     "eslint-plugin-jest": "^24.1.0",
     "event-stream": "^4.0.1",
     "express": "^4.17.1",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "redis": "^3.0.2"
   },
   "devDependencies": {
     "eslint": "^7.11.0",
