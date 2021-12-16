@@ -1,4 +1,5 @@
 require('@babel/register');
+require('regenerator-runtime/runtime');
 //express-server.js
 const express = require('express');
 const controllers = require('./controllers');
