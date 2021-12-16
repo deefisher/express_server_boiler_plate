@@ -1,3 +1,4 @@
+require('@babel/register');
 //express-server.js
 const express = require('express');
 const controllers = require('./controllers');
