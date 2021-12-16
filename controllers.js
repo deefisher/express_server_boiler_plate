@@ -1,7 +1,8 @@
-import url from 'url';
-const util = require('./utils');
-const data = require('./data');
-const fs = require('fs');
+import fetch from 'node-fetch';
+import HttpsProxyAgent from 'https-proxy-agent';
+import util from './utils';
+import data from './data';
+import fs from 'fs';
 
 //get something from resource
 const getLargeFile = (req, res) => {
@@ -10,6 +11,17 @@ const getLargeFile = (req, res) => {
     util.streamFile(fs.createReadStream(data.fileList[id]))
         .then((data) => res.json(data))
         .catch((err) => res.status(400).json(err));
+};
+
+//get with proxy
+const getWithProxy = (req, res) => {
+    const proxyAgent = new HttpsProxyAgent('http://196.19.183.210:3128');
+    return fetch('https://httpbin.org/ip?json', { agent: proxyAgent })
+        .then((response) => {
+            const body = response.text();
+            res.json(body);
+        })
+        .catch((err) => res.status(500).json(err));
 };
 
 //get something from resource
@@ -50,4 +62,5 @@ module.exports = {
     post,
     put,
     del,
+    getWithProxy,
 };

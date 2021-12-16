@@ -21,10 +21,11 @@ app.get('/', middleWare, (req, res) => {
     res.send('it is working!');
 });
 app.get('/get/:id', (req, res) => controllers.getLargeFile(req, res));
+app.get('/get-with-proxy', (req, res) => controllers.getWithProxy(req, res));
 app.put('/put', (req, res) => controllers.put(req, res));
 app.post('/post/:id', (req, res) => controllers.post(req, res));
 app.delete('/del', (req, res) => controllers.del(req, res));
 
-app.listen(3008, () => {
-    console.log(`app is running on port 3008`);
+app.listen(3128, () => {
+    console.log(`app is running on port 3128`);
 });
