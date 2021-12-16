@@ -16,10 +16,10 @@ const getLargeFile = (req, res) => {
 //get with proxy
 const getWithProxy = (req, res) => {
     const proxyAgent = new HttpsProxyAgent('http://196.19.183.210:3128');
-    return fetch('https://httpbin.org/ip?json', { agent: proxyAgent })
+    return fetch('https://rickandmortyapi.com/api', { agent: proxyAgent })
+        .then((resp) => resp.json())
         .then((response) => {
-            const body = response.text();
-            res.json(body);
+            res.json(response);
         })
         .catch((err) => res.status(500).json(err));
 };
